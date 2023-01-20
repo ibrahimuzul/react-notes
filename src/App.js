@@ -22,9 +22,14 @@ const App = () => {
     }
   ]);
 
+  const addNote = (text) =>{
+    console.log(text);
+    
+  }
+
   return (
     <div className='container'>
-      <NoteList notes={notes}></NoteList>
+      <NoteList notes={notes} handleAddNote={addNote}></NoteList>
     </div>
   );
 }
