@@ -23,8 +23,15 @@ const App = () => {
   ]);
 
   const addNote = (text) =>{
-    console.log(text);
-    
+    //console.log(text);
+    const date = new Date();
+    const newNote = {
+      id:nanoid(),
+      text:text,
+      date:date.toLocaleDateString()
+    }
+    const newNotes = [...notes, newNote];
+    setNotes(newNotes);
   }
 
   return (
