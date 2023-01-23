@@ -47,7 +47,7 @@ textarea:focus {
   padding: 5px 10px 5px 10px;
 }
 
-.save:hover{
+.save:hover {
   background-color: #ededed;
   cursor: pointer;
 }
@@ -60,10 +60,15 @@ textarea:focus {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  white-space: pre-wrap;
 }
 
 .note-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.delete-icon {
+  cursor: pointer;
 }
