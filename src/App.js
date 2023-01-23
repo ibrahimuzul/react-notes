@@ -23,30 +23,30 @@ const App = () => {
     }
   ]);
 
-  const addNote = (text) =>{
+  const addNote = (text) => {
     //console.log(text);
     const date = new Date();
     const newNote = {
-      id:nanoid(),
-      text:text,
-      date:date.toLocaleDateString()
+      id: nanoid(),
+      text: text,
+      date: date.toLocaleDateString()
     }
     const newNotes = [...notes, newNote];
     setNotes(newNotes);
   }
 
-  const deleteNote=(id)=>{
-    const newNotes = notes.filter((note)=>note.id!==id);
+  const deleteNote = (id) => {
+    const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
   }
 
   return (
     <div className='container'>
       <Search></Search>
-      <NoteList 
-      notes={notes} 
-      handleAddNote={addNote}
-      handleDeleteNote={deleteNote}
+      <NoteList
+        notes={notes}
+        handleAddNote={addNote}
+        handleDeleteNote={deleteNote}
       ></NoteList>
     </div>
   );
