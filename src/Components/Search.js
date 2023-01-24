@@ -2,9 +2,9 @@ import React from "react";
 import { MdSearch } from "react-icons/md";
 
 class Search extends React.Component {
-    constructor(props) {
+    /*constructor(props) {
         super(props);
-    }
+    }*/
     render() {
         return <div className="search">
             <MdSearch className="search-icons" size='1.3em'></MdSearch>
