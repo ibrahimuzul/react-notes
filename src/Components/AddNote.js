@@ -1,40 +1,46 @@
-import { useState } from 'react';
+import React, { Component } from 'react'
 
-const AddNote = ({ handleAddNote }) => {
-    const [noteText, setNoteText] = useState('');
-    const characterLimit = 200;
+class AddNote extends Component {
 
-    const handleChange = (event) => {
-        //console.log(event.target.value);
-        if (characterLimit - event.target.value.length >= 0) {
-            setNoteText(event.target.value);
+    constructor(props) {
+        super(props);
+        this.state = {
+            noteText: '',
+            characterLimit: 200
+        };
+    }
+
+    handleChange = (event) => {
+        if (this.state.characterLimit - event.target.value.length >= 0) {
+            this.setState({ noteText: event.target.value });
         }
     }
 
-    const handleSaveClick = () => {
-        if (noteText.trim().length > 0) {
-            handleAddNote(noteText);
-            setNoteText('');
+    handleSaveClick = () => {
+        if (this.state.noteText.trim().length > 0) {
+            this.props.handleAddNote(this.state.noteText);
+            this.setState({ noteText: '' });
         }
     }
 
-    return (
-        <div className="note new">
-            <textarea
-                rows="8"
-                cols="10"
-                placeholder="Type to add a note"
-                value={noteText}
-                onChange={handleChange}>
+    render() {
+        return (
+            <div className="note new">
+                <textarea
+                    rows="8"
+                    cols="10"
+                    placeholder="Type to add a note"
+                    value={this.state.noteText}
+                    onChange={this.handleChange}>
 
-            </textarea>
-            <div className="note-footer">
-                <small>{characterLimit - noteText.length} Remaining</small>
-                <button className="save" onClick={handleSaveClick}>Save</button>
+                </textarea>
+                <div className="note-footer">
+                    <small>{this.state.characterLimit - this.state.noteText.length} Remaining</small>
+                    <button className="save" onClick={this.handleSaveClick}>Save</button>
+                </div>
             </div>
-        </div>
-
-    );
-};
+        )
+    }
+}
 
 export default AddNote;
