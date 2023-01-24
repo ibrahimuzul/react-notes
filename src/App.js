@@ -6,7 +6,15 @@ import Search from './Components/Search';
 import Header from './Components/Header';
 
 const App = () => {
-	const [notes, setNotes] = useState(JSON.parse(
+  if (localStorage.getItem('react-notes-app-data') == null) {
+    console.log("initial empty data for local storage");
+    localStorage.setItem(
+      'react-notes-app-data',
+      JSON.stringify([])
+    );
+  }
+
+  const [notes, setNotes] = useState(JSON.parse(
     localStorage.getItem('react-notes-app-data')
   ));
 
@@ -14,22 +22,22 @@ const App = () => {
 
   const [darkMode, setDarkMode] = useState(false);
 
-	/*useEffect(() => {
-		const savedNotes = JSON.parse(
-			localStorage.getItem('react-notes-app-data')
-		);
+  useEffect(() => {
+    const savedNotes = JSON.parse(
+      localStorage.getItem('react-notes-app-data')
+    );
 
-		if (savedNotes) {
-			setNotes(savedNotes);
-		}
-	}, []);*/
+    if (savedNotes) {
+      setNotes(savedNotes);
+    }
+  }, []);
 
-	useEffect(() => {
-		localStorage.setItem(
-			'react-notes-app-data',
-			JSON.stringify(notes)
-		);
-	}, [notes]);
+  useEffect(() => {
+    localStorage.setItem(
+      'react-notes-app-data',
+      JSON.stringify(notes)
+    );
+  }, [notes]);
 
   const addNote = (text) => {
     //console.log(text);
