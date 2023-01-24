@@ -28,8 +28,8 @@ class App extends Component {
 
   }
 
-  handleDarkMode = (mode) => {
-    this.setState({ darkMode: mode });
+  handleDarkMode = () => {
+    this.setState({ darkMode: !this.state.darkMode });
   }
 
   handleSearchText = (text) => {
