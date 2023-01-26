@@ -9,7 +9,8 @@ class NotesList extends Component {
             <div className="notes-list">
                 {this.props.notes.map((note) =>
                     <Note key={note.id} id={note.id} text={note.text} date={note.date}
-                        handleDeleteNote={this.props.handleDeleteNote} />
+                        handleDeleteNote={this.props.handleDeleteNote}
+                        handleUpdateNote={this.props.handleUpdateNote} />
                 )}
                 <AddNote
                     handleAddNote={this.props.handleAddNote}

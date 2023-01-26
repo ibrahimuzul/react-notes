@@ -52,6 +52,24 @@ class App extends Component {
     );
   }
 
+  updateNote = (id, text) => {
+    //console.log(id);
+    let newNotes = this.state.notes.filter((note) => note.id !== id);
+
+    const date = new Date();
+    const newNote = {
+      id: nanoid(),
+      text: text,
+      date: date.toLocaleDateString()
+    }
+    newNotes = [...newNotes, newNote];
+    this.setState({ notes: newNotes });
+    localStorage.setItem(
+      'react-notes-app-data',
+      JSON.stringify(newNotes)
+    );
+  }
+
   deleteNote = (id) => {
     const newNotes = this.state.notes.filter((note) => note.id !== id);
     this.setState({ notes: newNotes });
@@ -70,6 +88,7 @@ class App extends Component {
           <NoteList
             notes={this.state.notes.filter((note) => note.text.toLowerCase().includes(this.state.searchText.toLowerCase()))}
             handleAddNote={this.addNote}
+            handleUpdateNote={this.updateNote}
             handleDeleteNote={this.deleteNote}
           ></NoteList>
         </div>

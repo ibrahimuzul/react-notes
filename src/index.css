@@ -12,18 +12,18 @@ code {
     monospace;
 }
 
-.header{
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.dark-mode{
+.dark-mode {
   background-color: black;
 }
 
-.dark-mode h1{
-  color:white;
+.dark-mode h1 {
+  color: white;
 }
 
 .container {
@@ -48,6 +48,14 @@ code {
 textarea {
   border: none;
   resize: none;
+
+}
+
+.note textarea {
+  background-color: #fef68a;
+}
+
+.note.new textarea {
   background-color: #67d7cc;
 }
 
@@ -82,6 +90,7 @@ textarea:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1em;
 }
 
 .delete-icon {
