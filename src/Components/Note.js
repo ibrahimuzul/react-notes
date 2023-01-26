@@ -27,7 +27,6 @@ class Note extends Component {
                     value={this.state.noteText}
                     onChange={this.handleChange}>
                 </textarea>
-                <span>{this.props.text}</span>
                 <div className='note-footer'>
                     <small>{this.props.date}</small>
                     <MdDeleteForever
